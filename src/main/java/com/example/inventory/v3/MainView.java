@@ -38,7 +38,7 @@ public class MainView extends VerticalLayout {
     }
 
     public void setGrid() {
-        grid.addColumn(Donor::getDonorName).setHeader("Donor Name");
+//        grid.addColumn(Donor::getDonorName).setHeader("Donor Name");
         List<Donor> donors = donationService.getAllDonors();
         System.out.println("Donors: " + donationService.getAllDonors());
         grid.setItems(donors);
