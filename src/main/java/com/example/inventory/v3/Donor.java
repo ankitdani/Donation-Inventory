@@ -22,21 +22,21 @@ public class Donor {
 
     private String DonorName;
 
-//    private String DonationType;
-//
-//    private String Quantity;
-//
-//    private Date DonationDate;
+    private String DonationType;
+
+    private String Quantity;
+
+    private Date DonationDate;
 
 
     public Donor() {
     }
 
-    public Donor(String donorName) {
+    public Donor(String donorName, String donationType, String quantity, Date donationDate) {
         DonorName = donorName;
-//        DonationType = donationType;
-//        Quantity = quantity;
-//        DonationDate = donationDate;
+        DonationType = donationType;
+        Quantity = quantity;
+        DonationDate = donationDate;
     }
 
     public String getDonorName() {
@@ -47,27 +47,27 @@ public class Donor {
         DonorName = donorName;
     }
 
-//    public String getDonationType() {
-//        return DonationType;
-//    }
-//
-//    public void setDonationType(String donationType) {
-//        DonationType = donationType;
-//    }
-//
-//    public String getQuantity() {
-//        return Quantity;
-//    }
-//
-//    public void setQuantity(String quantity) {
-//        Quantity = quantity;
-//    }
-//
-//    public Date getDonationDate() {
-//        return DonationDate;
-//    }
-//
-//    public void setDonationDate(Date donationDate) {
-//        DonationDate = donationDate;
-//    }
+    public String getDonationType() {
+        return DonationType;
+    }
+
+    public void setDonationType(String donationType) {
+        DonationType = donationType;
+    }
+
+    public String getQuantity() {
+        return Quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        Quantity = quantity;
+    }
+
+    public Date getDonationDate() {
+        return DonationDate;
+    }
+
+    public void setDonationDate(Date donationDate) {
+        DonationDate = donationDate;
+    }
 }

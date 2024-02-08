@@ -17,8 +17,6 @@ import java.util.List;
 //    }
 //}
 
-package com.example.inventory.v3;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
