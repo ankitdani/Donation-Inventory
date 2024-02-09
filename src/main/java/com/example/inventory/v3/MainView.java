@@ -20,6 +20,8 @@ public class MainView extends VerticalLayout {
     TextField donorNameField = new TextField("Enter donor name:");
     DatePicker donationDateField = new DatePicker("Enter donation date:");
     TextField quantityField = new TextField("Enter quantity:");
+
+    TextField donationTypeField = new TextField("Enter donation type:");
     DonationService donationService;
     Grid<Donor> grid = new Grid<>(Donor.class);
 
@@ -32,12 +34,14 @@ public class MainView extends VerticalLayout {
     public void addDonorForm(){
         donorNameField.setPlaceholder("Firstname Lastname");
         donationDateField.setPlaceholder("Pacific Standard Time");
-        quantityField.setPlaceholder("");
+        quantityField.setPlaceholder("$$");
+        donationTypeField.setPlaceholder("Money, clothes");
         Button saveButton = new Button("Save", event -> saveDonor());
         saveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         add(donorNameField, saveButton);
         add(donationDateField, saveButton);
         add(quantityField, saveButton);
+        add(donationTypeField, saveButton);
     }
 
     public void saveDonor() {
@@ -55,6 +59,10 @@ public class MainView extends VerticalLayout {
 
         donor.setQuantity(quantityField.getValue());
         donationService.saveDonor(donor);
+
+        donor.setDonationType(donationTypeField.getValue());
+        donationService.saveDonor(donor);
+
     }
 
     public void setGrid() {
