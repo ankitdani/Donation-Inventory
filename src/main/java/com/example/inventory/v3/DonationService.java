@@ -1,6 +1,5 @@
 package com.example.inventory.v3;
 
-import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
