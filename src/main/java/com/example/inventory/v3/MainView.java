@@ -13,9 +13,12 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Route("")
 public class MainView extends VerticalLayout {
+
+    private static final Logger LOGGER = Logger.getLogger(MainView.class.getName());
 
     TextField donorNameField = new TextField("Enter donor name:");
     DatePicker donationDateField = new DatePicker("Enter donation date:");
@@ -63,12 +66,13 @@ public class MainView extends VerticalLayout {
         donor.setDonationType(donationTypeField.getValue());
         donationService.saveDonor(donor);
 
+        LOGGER.info("Donor saved: " + donor);
+
     }
 
     public void setGrid() {
-//        grid.addColumn(Donor::getDonorName).setHeader("Donor Name");
         List<Donor> donors = donationService.getAllDonors();
-        System.out.println("Donors: " + donationService.getAllDonors());
+        LOGGER.info("Donors: " + donors);
         grid.setItems(donors);
         grid.getDataProvider().refreshAll();
         add(grid);
