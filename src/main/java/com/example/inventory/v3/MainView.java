@@ -72,7 +72,7 @@ public class MainView extends VerticalLayout {
 
     public void setGrid() {
         List<Donor> donors = donationService.getAllDonors();
-        LOGGER.info("Donors: " + donors);
+        LOGGER.info("Donors in grid: " + donors);
         grid.setItems(donors);
         grid.getDataProvider().refreshAll();
         add(grid);
