@@ -52,13 +52,8 @@ public class MainView extends VerticalLayout {
         donor.setDonorName(donorNameField.getValue());
         donationService.saveDonor(donor);
 
-        // Convert LocalDate to Date
-        LocalDate localDate = donationDateField.getValue();
-        Instant instant = localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
-        Date date = Date.from(instant);
-
+        Date date = Date.from(donationDateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         donor.setDonationDate(date);
-        donationService.saveDonor(donor);
 
         donor.setQuantity(quantityField.getValue());
         donationService.saveDonor(donor);

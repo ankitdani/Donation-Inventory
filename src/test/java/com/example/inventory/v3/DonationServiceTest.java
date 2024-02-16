@@ -1,52 +1,39 @@
 package com.example.inventory.v3;
 
+import jakarta.persistence.SequenceGenerator;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class DonationServiceTest {
-
     @Mock
-    DonorRepository donorRepository;
+    private DonorRepository donorRepository;
 
     @InjectMocks
-    DonationService donationService;
-//
-//    @Test
-//    void testGetAllDonors() {
-//        // Arrange
-//        List<Donor> donors = new ArrayList<>();
-//        donors.add(new Donor("John", "Cash", "100", new Date()));
-//        when(donorRepository.findAll()).thenReturn(donors);
-//
-//        // Act
-//        List<Donor> result = donationService.getAllDonors();
-//
-//        // Assert
-//        assertEquals(1, result.size());
-//        assertEquals("John", result.get(0).getDonorName());
-//        verify(donorRepository, times(1)).findAll();
-//    }
-//
-//    @Test
-//    void testSaveDonor() {
-//        // Arrange
-//        Donor donor = new Donor("Alice", "Credit Card", "200", new Date());
-//        when(donorRepository.save(donor)).thenReturn(donor);
-//
-//        // Act
-//        Donor result = donationService.saveDonor(donor);
-//
-//        // Assert
-//        assertEquals("Alice", result.getDonorName());
-//        verify(donorRepository, times(1)).save(donor);
-//    }
+    private DonationService donationService;
+
+    @Test
+    public void testSaveDonor(){
+        Donor donor = new Donor("Test user", "Money", "100", new Date());
+
+        when(donorRepository.save(donor)).thenReturn(donor);
+
+        Donor savedDonor = donationService.saveDonor(donor);
+
+        assertEquals("Test user", savedDonor.getDonorName());
+        assertEquals("Money", savedDonor.getDonationType());
+        assertEquals("100", savedDonor.getQuantity());
+//        assertEquals(new Date(), savedDonor.getDonationDate());
+
+        verify(donorRepository, times(1)).save(donor);
+    }
+
 }
