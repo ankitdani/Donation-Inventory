@@ -3,6 +3,8 @@ package com.example.inventory.v3;
 import jakarta.persistence.SequenceGenerator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -20,6 +22,9 @@ class DonationServiceTest {
     @InjectMocks
     private DonationService donationService;
 
+    @Captor
+    private ArgumentCaptor<Donor> donorCaptor;
+
     @Test
     public void testSaveDonor(){
         Donor donor = new Donor("Test user", "Money", "100", new Date());
@@ -31,9 +36,10 @@ class DonationServiceTest {
         assertEquals("Test user", savedDonor.getDonorName());
         assertEquals("Money", savedDonor.getDonationType());
         assertEquals("100", savedDonor.getQuantity());
-//        assertEquals(new Date(), savedDonor.getDonationDate());
+        verify(donorRepository, times(1)).save(donorCaptor.capture());
+        assertEquals(donor.getDonationDate(), donorCaptor.getValue().getDonationDate());
 
-        verify(donorRepository, times(1)).save(donor);
+
     }
 
 }
