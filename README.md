@@ -21,4 +21,4 @@ open
 ```
 
 ## Limitations
-To View the new data entered, the user has to refresh the page again. 
+To view newly entered data, the user must manually refresh the page.
