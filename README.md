@@ -10,15 +10,14 @@ The Donation-Inventory project is designed to demonstrate a method for collectin
 brew install docker
 ```
 
-Go in the project directory and Run script  
+Go into the project directory and Run the following script:  
 ```
 ./run.sh
 ```
 
-open 
-```
+To view the webpage, open the following URL: 
 [http://localhost:8080/](http://localhost:8080/)
-```
+
 
 ## Limitations
 To view newly entered data, the user must manually refresh the page.
