@@ -1,5 +1,10 @@
 # Donation-Inventory
 
+- ![Spring Framework](https://img.shields.io/badge/Spring_Framework-5.x-brightgreen)
+- ![Vaadin](https://img.shields.io/badge/Vaadin-14.x-blue)
+- ![JUnit](https://img.shields.io/badge/JUnit-5.x-orange)
+- ![Mockito](https://img.shields.io/badge/Mockito-3.x-orange)
+
 ## Overview
 The Donation-Inventory project is designed to demonstrate a method for collecting donor input and displaying donation details in a grid format.
 
